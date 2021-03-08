@@ -10,7 +10,7 @@ df <- read.csv("export-0xe5ecfb44bccd7a585fa7f4a8e02c450e525af2e4.csv")
 df$date <- as_datetime(df$UnixTimestamp)
 
 # Extract out the two relevant columns and remove row names from the data frame
-df <- df[, c("date", "TxnFee.USD.")]
+df <- df[, c("date", "TxnFee.ETH.", "TxnFee.USD.")]
 rownames(df) <- NULL
 
 # Plot the data
