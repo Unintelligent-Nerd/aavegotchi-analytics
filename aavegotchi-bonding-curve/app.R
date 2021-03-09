@@ -1,5 +1,6 @@
 # Create a Shiny App to show gas spent on transactions on the bonding curve smart contract
 library(shiny)
+library(shinycssloaders)
 library(lubridate)
 library(plotly)
 
@@ -31,7 +32,8 @@ ui <- fluidPage(
       
       # Display plot of Gas Fees History
       mainPanel(
-         plotlyOutput("lineplot")
+         plotlyOutput("lineplot") %>%
+           withSpinner()
       )
    )
 )
