@@ -18,6 +18,11 @@ rownames(df) <- NULL
 names(df) <- c("date", "ETH", "USD")
 
 ui <- fluidPage(
+  
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
+  ),
+
    
    # Application title
    titlePanel("Aavegotchi Bonding Curve"),
