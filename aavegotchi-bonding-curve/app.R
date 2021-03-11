@@ -18,7 +18,7 @@ rownames(df) <- NULL
 names(df) <- c("date", "ETH", "USD")
 
 ui <- fluidPage(
-  
+
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")
   ),
@@ -29,11 +29,26 @@ ui <- fluidPage(
    
    # Sidebar with selectInput to choose currency denomination
    sidebarLayout(
+     
+     
       sidebarPanel(
-         selectInput("currency",
-                     "Currency",
-                     choices = c("ETH", "USD"))
-      ),
+        
+        fluidRow(
+          
+          tags$div(
+            
+            tags$h1("Gas consumption of our lil Ghstie frens"),
+            
+            tags$br(),
+            
+            tags$img(src = "aavegotchi.png", width = "25%"))
+          ),
+        
+        fluidRow(
+          
+          selectInput("currency","Currency", choices = c("ETH", "USD")))
+        
+        ),
       
       # Display plot of Gas Fees History
       mainPanel(

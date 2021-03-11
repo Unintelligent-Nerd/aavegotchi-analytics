@@ -1,3 +1,13 @@
 body {
 	background-color: #FA34F3;
 }
+
+img {
+  background-color: #7217F4;
+  border-radius: 15%;
+  width: 150px;
+}
+
+h1 {
+  color: #5100B1;
+}
