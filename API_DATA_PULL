@@ -1,0 +1,34 @@
+# This is an attempt to pull aavegotchi data from the decentralized network
+
+library(ghql)
+library(jsonlite)
+# Point to correct URL
+graphql_conn <- GraphqlClient$new(
+  url = "https://gateway.thegraph.com/api/[api-key]/subgraphs/id/QmWMRwRZkrowN1w4JefhLVGiJg7jhMriADy9ekHGw8A8EQ")
+# Initialize empty query
+qry <- Query$new()
+# Example Query - CHANGE THIS TO USE YOUR QUERY
+qry$query('mydata', '{
+  pools(where: {id: "QmWMRwRZkrowN1w4JefhLVGiJg7jhMriADy9ekHGw8A8EQ"} ) {
+    AavegotchiOption
+    Aavegotchi
+    Portal
+    User
+    ERC721Listing
+    ERC1155Listing
+    ERC1155Purchase
+    Statistic
+    ItemType
+    WearableSet
+      }
+}')
+
+# Query to object
+x <- graphql_conn$exec(qry$queries$mydata)
+# parse query
+data <- jsonlite::fromJSON(x)
+# extract result
+data <- data$data$pools
+
+# write results to .csv file
+write.csv(data, 'aavegotchi_data')
